@@ -1,0 +1,23 @@
+# disable the visual bell (that anoying Wuff Wuff message)
+vbell off
+
+# Disable the startup copyright message
+startup_message off
+
+# Disables login mode so screen sessions aren't displayed in utmp
+# deflogin off # doesn't work in OSX
+
+# scrollback lines
+defscrollback 8192
+
+# enable UTF-8 support
+defutf8 on
+
+# enable hardstatus to always display on the last line
+hardstatus alwayslastline
+
+# hardstatus magic
+hardstatus string '%{= kg} %{c}%H %{g}|%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}|%{W} %D %M %d %c %{g}'
+
+# http://www.delorie.com/gnu/docs/screen/screen_138.html
+# http://jinome.stanford.edu/stat366/unix/.screenrc
