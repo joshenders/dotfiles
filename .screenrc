@@ -21,3 +21,5 @@ hardstatus string '%{= kg} %{c}%H %{g}|%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%
 
 # http://www.delorie.com/gnu/docs/screen/screen_138.html
 # http://jinome.stanford.edu/stat366/unix/.screenrc
+
+multiuser on

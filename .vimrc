@@ -1,6 +1,9 @@
 " Will tell Vim not to behave like old-school Vi. This makes Vim more useful.
 set nocompatible
 
+" enable line numbering
+set number
+
 " Syntax highlighting
 syntax on
 
@@ -17,10 +20,10 @@ set smartindent
 set expandtab
 
 " Controls the number of space characters that will be inserted when the tab key is pressed
-set tabstop=2
+set tabstop=4
 
 " Changes the number of space characters inserted for indentation
-set shiftwidth=2
+set shiftwidth=4
 
 " Highlights the matching [braces|brackets|parens] when the cursor is on a bracket.
 set showmatch
@@ -30,6 +33,9 @@ set ruler
 
 " Highlights all matches in text when you search
 set hlsearch
+
+" Always display status line
+set statusline=2
 
 " Informative status line
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
@@ -44,3 +50,6 @@ set backspace=2
 
 " Allows moving to previous line after reaching first/last character in a line with cursor keys
 set whichwrap=<,>,h,l,[,]
+
+"set list
+set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
