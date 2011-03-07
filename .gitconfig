@@ -1,0 +1,9 @@
+[user]
+	email = jenders@saymedia.com
+	name = Josh Enders
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	tree = log --graph --pretty=oneline --abbrev-commit --decorate --color
