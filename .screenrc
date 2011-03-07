@@ -23,3 +23,8 @@ hardstatus string '%{= kg} %{c}%H %{g}|%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%
 # http://jinome.stanford.edu/stat366/unix/.screenrc
 
 multiuser on
+acladd kallen
+acladd ahassan
+acladd thurley
+acladd dormando
+acladd mmatson 
