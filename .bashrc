@@ -62,6 +62,9 @@ export GREP_COLOR=auto
 # Add timestamps to .bash_history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+# Keep bash history sync'd between multiple terminals. Reread histfile and flush unwritten commands at every prompt
+export PROMPT_COMMAND="history -na"
+
 # The "ignoredups" setting ignores repeated lines. 
 export HISTCONTROL=ignoredups
 
