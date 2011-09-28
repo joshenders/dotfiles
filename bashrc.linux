@@ -1,0 +1,18 @@
+# time stamps and 80 chars wide
+alias strace='strace -T -s80'
+
+# Colorized output and classification
+alias ls='ls --color=auto -F'
+
+# only display ipv4 addresses in output
+alias ip='ip -4'
+
+# Colorful prompt
+if ! [[ $EUID == "0" ]]; then
+    export PS1='\[\e[0;37m\]\u\[\e[1;30m\]@\[\e[0;32m\]\h${SSH_TTY#/dev}: \[\e[34m\]\W \[\e[30m\]\$ \[\e[0m\]'
+else # you are root and you get darkprompt
+    export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
+fi
+
+# Path with sbin
+export PATH=/usr/local/sbin:/sbin:/usr/sbin:$PATH
