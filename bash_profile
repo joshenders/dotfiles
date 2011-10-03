@@ -77,7 +77,7 @@ export LC_IDENTIFICATION="en_US.UTF-8"
 #### OS specific ####
 
 if [[ "$(uname -s)" == "Linux" ]]; then
-    source ~/.bashrc.linux
+    source ~/.bash_profile.linux
 elif [[ "$(uname -s)" == "Darwin" ]]; then
-    source ~/.bashrc.osx
+    source ~/.bash_profile.osx
 fi
