@@ -27,6 +27,7 @@ alias tree='tree -C'
 alias tcpdump='tcpdump -s0'
 
 # Set preferred editor
+export VISUAL=vim # This is checked before $EDITOR on some older utils
 export EDITOR=vim
 
 # Enable colorized output in grep
