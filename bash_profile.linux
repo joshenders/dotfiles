@@ -16,3 +16,7 @@ fi
 
 # Path with sbin
 export PATH=/usr/local/sbin:/sbin:/usr/sbin:$PATH
+
+# Remove annoying command suggestions on typos, provided by command-not-found package
+# https://bugs.launchpad.net/ubuntu/+source/bash/+bug/561046
+unset command_not_found_handle
