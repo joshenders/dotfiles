@@ -9,7 +9,7 @@ alias ip='ip -4'
 
 # Colorful prompt
 if ! [[ $EUID == "0" ]]; then
-    export PS1='\[\e[0;37m\]\u\[\e[1;30m\]@\[\e[0;32m\]\h${SSH_TTY#/dev}: \[\e[34m\]\W \[\e[30m\]\$ \[\e[0m\]'
+    export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
 else # you are root and you get darkprompt
     export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
 fi
