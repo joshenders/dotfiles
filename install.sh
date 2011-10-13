@@ -10,3 +10,4 @@ ln -fs ${PWD}/bash_profile.linux ~/.bash_profile.linux
 ln -fs ${PWD}/gitconfig ~/.gitconfig
 ln -fs ${PWD}/screenrc ~/.screenrc
 ln -fs ${PWD}/vimrc ~/.vimrc
+ln -fs ${PWD}/htoprc ~/.htoprc
