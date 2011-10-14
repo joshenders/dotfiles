@@ -4,9 +4,10 @@
 # This script "fixes" that.
 
 # circle back and make this more robust
-ln -fs ${PWD}/bash_profile ~/.bash_profile
-ln -fs ${PWD}/bash_profile.osx ~/.bash_profile.osx
-ln -fs ${PWD}/bash_profile.linux ~/.bash_profile.linux
-ln -fs ${PWD}/gitconfig ~/.gitconfig
-ln -fs ${PWD}/screenrc ~/.screenrc
-ln -fs ${PWD}/vimrc ~/.vimrc
+ln -sfv ${PWD}/bash_profile ~/.bash_profile
+ln -sfv ${PWD}/bash_profile.osx ~/.bash_profile.osx
+ln -sfv ${PWD}/bash_profile.linux ~/.bash_profile.linux
+ln -sfv ${PWD}/gitconfig ~/.gitconfig
+ln -sfv ${PWD}/screenrc ~/.screenrc
+ln -sfv ${PWD}/vim ~/.vim
+ln -sfv ${PWD}/vimrc ~/.vimrc
