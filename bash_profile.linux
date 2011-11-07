@@ -1,6 +1,9 @@
 # time stamps and 80 chars wide
 alias strace='strace -T -s80'
 
+# Console print and colorized streams
+alias tcpflow='tcpflow -c -e'
+
 # Colorized output and classification
 alias ls='ls --color=auto -F'
 
