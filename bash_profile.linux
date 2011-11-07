@@ -15,7 +15,7 @@ else # you are root and you get darkprompt
 fi
 
 # Path with sbin
-export PATH=/usr/local/sbin:/sbin:/usr/sbin:$PATH
+export PATH=~/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
 
 # Remove annoying command suggestions on typos, provided by command-not-found package
 # https://bugs.launchpad.net/ubuntu/+source/bash/+bug/561046
