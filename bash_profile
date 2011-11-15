@@ -20,6 +20,9 @@ alias bell='printf "\a"'
 # confirm and verbose
 alias rm='rm -iv'
 
+# verbose
+alias mv='mv -v'
+
 # Enabled colorized output in tree
 alias tree='tree -C'
 
