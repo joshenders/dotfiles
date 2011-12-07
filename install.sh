@@ -25,6 +25,7 @@ dotfiles=(
     screenrc
     vim
     vimrc
+    my.cnf
 ) 
 
 for file in ${dotfiles[@]}; do
