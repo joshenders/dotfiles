@@ -33,15 +33,18 @@ export EDITOR=vim
 # Enable colorized output in grep
 export GREP_COLOR=auto
 
+# Unset bounds on history file. Disk is cheap, unlimited is fine until it's not
+# and then I'll rotate
+export HISTFILESIZE=
+export HISTSIZE=
+
 # Add timestamps to .bash_history
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
-# Keep bash history sync'd between multiple terminals. Reread histfile and flush unwritten commands at every prompt
-# FIXME: don't think this works in osx, getting tons of duplicate history 
-#export PROMPT_COMMAND="history -n; history -a"
-
-# The "ignoredups" setting ignores repeated lines. 
-export HISTCONTROL=ignoredups
+# The "ignoreboth" setting ignores repeated lines as well as silently discards
+# lines beginning with a space for privacy. Equivalent to 'ignoredups' and
+# 'ignorespace'
+export HISTCONTROL=ignoreboth
 
 # Commands to not log in history
 export HISTIGNORE=ls:cd
