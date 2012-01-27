@@ -1,14 +1,11 @@
 " Will tell Vim not to behave like old-school Vi. This makes Vim more useful.
 set nocompatible
 
-" enable line numbering
+" Enable line numbering
 set number
 
 " Syntax highlighting
 syntax on
-
-" Enable line numbers
-"set number
 
 " Turn off word wrapping
 set wrap!
