@@ -48,5 +48,5 @@ set backspace=2
 " Allows moving to previous line after reaching first/last character in a line with cursor keys
 set whichwrap=<,>,h,l,[,]
 
-"set list
+" set list
 set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
