@@ -33,12 +33,9 @@ dotfiles=(
     .my.cnf
 ) 
 
+echo "Public files:"
 for file in ${dotfiles[@]}; do
-    echo "Working on $file"
-
-    if [[ -e "${HOME}/.${file}" ]]; then # remove existing files and directories
-        rm -rfv "${HOME}/.${file}"
-    fi
+    rm -rf "${HOME}/.${file}"
     ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
 done
 
@@ -46,16 +43,12 @@ done
 # Private files
 #
 
-# ssh config
-if [[ -e "${HOME}/.ssh/config" ]]; then
-    rm -fv "${HOME}/.ssh/config"
-fi
+echo -e "\nPrivate files:"
 
+# ssh config
+rm -f "${HOME}/.ssh/config"
 ln -sfv "${PWD}/ssh_config" "${HOME}/.ssh/config"
 
 # irssi config
-if [[ -e "${HOME}/.irssi/config" ]]; then
-    rm -fv "${HOME}/.irssi/config"
-fi
-
+rm -f "${HOME}/.irssi/config"
 ln -sfv "${PWD}/irssi_config" "${HOME}/.irssi/config"
