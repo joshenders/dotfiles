@@ -23,8 +23,8 @@ else # you are root and you get darkprompt
     export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
 fi
 
-# Path with sbin
-export PATH=~/bin:/usr/local/sbin:/sbin:/usr/sbin:$PATH
+# Path with ~/bin and sbin family
+export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 
 # Remove annoying command suggestions on typos, provided by command-not-found package
 # https://bugs.launchpad.net/ubuntu/+source/bash/+bug/561046
