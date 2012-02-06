@@ -7,6 +7,9 @@ alias tcpflow='tcpflow -c -e'
 # Colorized output and classification
 alias ls='ls --color=auto -F'
 
+# Colorized output in grep
+alias grep='grep --color=auto'
+
 # only display ipv4 addresses in output
 alias ip='ip -4'
 

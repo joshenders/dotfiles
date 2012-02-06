@@ -30,9 +30,6 @@ alias tcpdump='tcpdump -s0'
 export VISUAL=vim # This is checked before $EDITOR on some older utils
 export EDITOR=vim
 
-# Enable colorized output in grep
-export GREP_COLOR=auto
-
 # Unset bounds on history file. Disk is cheap, unlimited is fine until it's not
 # and then I'll rotate
 export HISTFILESIZE=
