@@ -1,15 +1,18 @@
-  # Colorized output and classification
-  alias ls='ls -FG'
+# Colorized output and classification
+alias ls='ls -FG'
 
-  # Lock screen
-  alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'   
- 
-  # Happy/Sad Prompt
-  if ! [[ $EUID == "0" ]]; then
-    export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
-  else # you are root and you get darkprompt
-    export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
-  fi  
- 
-  # Path for MacPorts
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Lock screen
+alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'   
+
+# show usb info
+alias lsusb='system_profiler SPUSBDataType'
+
+# Happy/Sad Prompt
+if ! [[ $EUID == "0" ]]; then
+export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
+else # you are root and you get darkprompt
+export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
+fi  
+
+# Path for MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
