@@ -8,7 +8,7 @@ alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resource
 alias lsusb='system_profiler SPUSBDataType'
 
 # DROID
-alias dorid='say -v cello droid'
+alias droid='say -v cello droid'
 
 # Happy/Sad Prompt
 if ! [[ $EUID == "0" ]]; then
