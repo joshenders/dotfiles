@@ -9,6 +9,13 @@ if [[ $- != *i* ]]; then # Shell is non-interactive.
   return
 fi
 
+# If set, the history list is appended to the file named by the value of the
+# HISTFILE variable when the shell exits, rather than overwriting the file.
+shopt -s histappend
+
+# enable extended globbing. Think extended regex but for globbing
+shopt -s extglob
+
 # GNU and BSD utils behave quite differently
 if [[ "$(uname -s)" == "Linux" ]]; then
     source ~/.bash_profile.linux.aliases

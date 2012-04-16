@@ -18,15 +18,19 @@ export HISTCONTROL=ignoreboth
 
 # Commands to not log in history
 export HISTIGNORE=ls:cd
-
-# If set, the history list is appended to the file named by the value of the HISTFILE variable when the shell exits, rather than overwriting the file.
-shopt -s histappend
-
-# enable extended globbing. Think extended regex but for globbing
-shopt -s extglob
  
 # Force ls to output ansi escape sequences (colors) even when output is not a terminal, eg. a pipe
 export CLICOLOR_FORCE=true
 
 # causes raw control characters to be printed and therefore interpreted by your terminal
 export LESS=-R
+
+# Happy/Sad Prompt
+if [[ "$EUID" -gt '0' ]]; then
+    export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
+else # you are root and you get darkprompt
+    export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
+fi
+
+# Path for MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
