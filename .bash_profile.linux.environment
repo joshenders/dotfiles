@@ -1,0 +1,49 @@
+# Set preferred editor
+export VISUAL=vim # This is checked before $EDITOR on some older utils
+export EDITOR=vim
+
+# Unset bounds on history file. Disk is cheap, unlimited is fine until it's not
+# and then rotate
+export HISTFILESIZE=
+export HISTSIZE=
+
+# Add timestamps to .bash_history
+# TODO: find someway to store the current working directory for forensics
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# The "ignoreboth" setting ignores repeated lines as well as silently discards
+# lines beginning with a space for privacy. Equivalent to 'ignoredups' and
+# 'ignorespace'
+export HISTCONTROL=ignoreboth
+
+# Commands to not log in history
+export HISTIGNORE=ls:cd
+
+# If set, the history list is appended to the file named by the value of the
+# HISTFILE variable when the shell exits, rather than overwriting the file.
+shopt -s histappend
+
+# enable extended globbing. Think extended regex but for globbing
+shopt -s extglob
+ 
+# Force ls to output ansi escape sequences (colors) even when output is not a
+# terminal, eg. a pipe
+export CLICOLOR_FORCE=true
+
+# causes raw control characters to be printed and therefore interpreted by your
+# terminal
+export LESS=-R
+
+# Path with ~/bin and sbin family
+export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+
+# Colorful prompt
+if [[ "$EUID" -gt '0' ]]; then
+    export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
+else # you are root and you get darkprompt
+    export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
+fi
+
+# Remove annoying command suggestions on typos, provided by command-not-found
+# package in ubuntu
+unset command_not_found_handle
