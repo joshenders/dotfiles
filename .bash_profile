@@ -16,18 +16,11 @@ shopt -s histappend
 # enable extended globbing. Think extended regex but for globbing
 shopt -s extglob
 
-# GNU and BSD utils behave quite differently
+# Taste the UNIX rainbow
 if [[ "$(uname -s)" == "Linux" ]]; then
-    source ~/.bash_profile.linux.aliases
-    source ~/.bash_profile.linux.environment
-    #source ~/.bash_profile.linux.functions
-
-    # fb
-    source ~/.bash_profile.linux.aliases.fb
-    source ~/.bash_profile.linux.environment.fb
-    #source ~/.bash_profile.linux.functions
+    source ~/.bash_profile.linux
 elif [[ "$(uname -s)" == "Darwin" ]]; then
-    source ~/.bash_profile.osx.aliases
-    source ~/.bash_profile.osx.environment
-    #source ~/.bash_profile.osx.functions
+    source ~/.bash_profile.osx
+elif [[ "$(uname -s)" == "SunOS" ]]; then
+    source ~/.bash_profile.oi
 fi
