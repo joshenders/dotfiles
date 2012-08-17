@@ -24,17 +24,24 @@ done
 # Public files
 #
 
+# General configs
 dotfiles=(
     .bash_profile
-    .bash_profile.linux
-    .bash_profile.osx
-    .bash_profile.oi
     .gitconfig
     .htoprc
     .screenrc
     .vimrc
     .my.cnf
-) 
+)
+
+# Only copy flavor specific config
+if [[ "$(uname -s)" == "Linux" ]]; then
+    dotfiles=(${dotfiles[@]} bash_profile.linux)
+elif [[ "$(uname -s)" == "Darwin" ]]; then
+    dotfiles=(${dotfiles[@]} bash_profile.osx)
+elif [[ "$(uname -s)" == "SunOS" ]]; then
+    dotfiles=(${dotfiles[@]} bash_profile.oi)
+fi
 
 echo "Installing..."
 for file in ${dotfiles[@]}; do
