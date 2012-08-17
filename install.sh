@@ -36,11 +36,11 @@ dotfiles=(
 
 # Only copy flavor specific config
 if [[ "$(uname -s)" == "Linux" ]]; then
-    dotfiles=(${dotfiles[@]} bash_profile.linux)
+    dotfiles=(${dotfiles[@]} .bash_profile.linux)
 elif [[ "$(uname -s)" == "Darwin" ]]; then
-    dotfiles=(${dotfiles[@]} bash_profile.osx)
+    dotfiles=(${dotfiles[@]} .bash_profile.osx)
 elif [[ "$(uname -s)" == "SunOS" ]]; then
-    dotfiles=(${dotfiles[@]} bash_profile.oi)
+    dotfiles=(${dotfiles[@]} .bash_profile.oi)
 fi
 
 echo "Installing..."
