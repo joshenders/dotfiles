@@ -26,10 +26,9 @@ done
 
 dotfiles=(
     .bash_profile
-    .bash_profile.linux.aliases
-    .bash_profile.linux.environment
-    .bash_profile.osx.aliases
-    .bash_profile.osx.environment
+    .bash_profile.linux
+    .bash_profile.osx
+    .bash_profile.oi
     .gitconfig
     .htoprc
     .screenrc
@@ -37,31 +36,8 @@ dotfiles=(
     .my.cnf
 ) 
 
-echo "Public files:"
+echo "Installing..."
 for file in ${dotfiles[@]}; do
     rm -rf "${HOME}/.${file}"
     ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
 done
-
-#
-# Private files
-#
-
-dotfiles=(
-    .bash_profile.linux.aliases.fb
-)
-
-echo -e "\nPrivate files:"
-
-for file in ${dotfiles[@]}; do
-    rm -rf "${HOME}/.${file}"
-    ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
-done
-
-# ssh config
-rm -f "${HOME}/.ssh/config"
-ln -sfv "${PWD}/ssh_config.fb" "${HOME}/.ssh/config"
-
-# irssi config
-rm -f "${HOME}/.irssi/config"
-ln -sfv "${PWD}/irssi_config.fb" "${HOME}/.irssi/config"
