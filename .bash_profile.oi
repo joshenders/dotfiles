@@ -6,6 +6,9 @@
 # Environment #
 ###############
 
+# Colorful prompt
+export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
+
 # Inherited from /etc/skel/.profile
 export PATH=/usr/gnu/bin:/usr/bin:/usr/sbin:/sbin
 
