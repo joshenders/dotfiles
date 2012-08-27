@@ -40,7 +40,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 elif [[ "$(uname -s)" == "Darwin" ]]; then
     dotfiles=(${dotfiles[@]} .bash_profile.osx)
 elif [[ "$(uname -s)" == "SunOS" ]]; then
-    dotfiles=(${dotfiles[@]} .bash_profile.oi)
+    dotfiles=(${dotfiles[@]} .bash_profile.oi .inputrc)
 fi
 
 echo "Installing..."
