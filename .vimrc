@@ -45,6 +45,9 @@ set noswapfile
 " Fix for backspace not working correctly in INSERT mode 
 set backspace=2
 
+" Enable visual bell instead of audible bell
+"set visualbell 
+
 " Allows moving to previous line after reaching first/last character in a line with cursor keys
 set whichwrap=<,>,h,l,[,]
 
