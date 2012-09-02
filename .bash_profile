@@ -20,7 +20,7 @@ shopt -s extglob
 if [[ "$(uname -s)" == "Linux" ]]; then
     source ~/.bash_profile.linux
 elif [[ "$(uname -s)" == "Darwin" ]]; then
-    source ~/.bash_profile.osx
+    source ~/.bash_profile.darwin
 elif [[ "$(uname -s)" == "SunOS" ]]; then
-    source ~/.bash_profile.oi
+    source ~/.bash_profile.sunos
 fi
