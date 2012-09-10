@@ -90,3 +90,12 @@ unset command_not_found_handle
 #############
 # Functions #
 #############
+
+# dmesg shows timestamps in seconds since boot, this gnarly awk one liner takes
+# dmesg input and replaces the ticks with a timestamp, similar to what is seen
+# in /var/log/kern.log.
+function dstamp() {
+    while read line; do
+        awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< $line
+    done
+}
