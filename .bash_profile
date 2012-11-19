@@ -1,10 +1,6 @@
-# This file is sourced by all *interactive* bash shells on startup,
-# including some apparently interactive shells such as scp and rcp
-# that can't tolerate any output.
+# This file is sourced by login shells
 
-# Test for an interactive shell.  There is no need to set anything
-# past this point for scp and rcp, and it's important to refrain from
-# outputting anything in those cases.
+# Some login shells are not interactive and cannot tolerate output. (e.g scp)
 if [[ $- != *i* ]]; then # Shell is non-interactive.
   return
 fi
@@ -16,7 +12,11 @@ shopt -s histappend
 # enable extended globbing. Think extended regex but for globbing
 shopt -s extglob
 
-# Taste the UNIX rainbow
+# Remove all bash completion statements. I never use it and it seems to slow
+# down the shell and pollute the environment.
+type complete >/dev/null 2>&1 && complete -r
+
+# Taste the Unix rainbow
 if [[ "$(uname -s)" == "Linux" ]]; then
     source ~/.bash_profile.linux
 elif [[ "$(uname -s)" == "Darwin" ]]; then
