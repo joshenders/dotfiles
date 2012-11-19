@@ -27,6 +27,7 @@ done
 # General configs
 dotfiles=(
     .bash_profile
+    .bashrc
     .gitconfig
     .htoprc
     .screenrc
@@ -34,13 +35,13 @@ dotfiles=(
     .my.cnf
 )
 
-# Only copy flavor specific config
+# distribution specific dotfiles
 if [[ "$(uname -s)" == "Linux" ]]; then
-    dotfiles=(${dotfiles[@]} .bash_profile.linux)
+    dotfiles=(${dotfiles[@]} .bashrc.linux)
 elif [[ "$(uname -s)" == "Darwin" ]]; then
-    dotfiles=(${dotfiles[@]} .bash_profile.darwin)
+    dotfiles=(${dotfiles[@]} .bashrc.darwin)
 elif [[ "$(uname -s)" == "SunOS" ]]; then
-    dotfiles=(${dotfiles[@]} .bash_profile.sunos .inputrc)
+    dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)
 fi
 
 echo "Installing..."
