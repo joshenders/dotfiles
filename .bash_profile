@@ -1,7 +1,7 @@
 # This file is sourced by login shells
 
 # Some login shells are not interactive and cannot tolerate output. (e.g scp)
-if ! [[ $- =~ *i* ]]; then # Shell is non-interactive.
+if [[ $- != *i* ]]; then # Shell is non-interactive.
     return
 fi
 
