@@ -1,5 +1,5 @@
 " Will tell Vim not to behave like old-school Vi. This makes Vim more useful.
-set nocompatible
+"set nocompatible
 
 " Enable line numbering
 set number
