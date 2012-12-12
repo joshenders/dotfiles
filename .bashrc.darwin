@@ -14,6 +14,9 @@ alias tree='tree -C'
 # Colorized output and classification
 alias ls='ls -FG'
 
+# Console print and colorized streams
+alias tcpflow='tcpflow -c -e'
+
 # Convenient audible bell alias for alerting
 alias bell='printf "\a"'
 
