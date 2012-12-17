@@ -8,7 +8,8 @@ shopt -s histappend
 shopt -s extglob
 
 # Remove all bash completion statements. I never use it and it seems to slow
-# down the shell and pollute the environment.
+# down the shell and pollute the environment. Some versions hook
+# .config/bash_completion in profile.d/bash_completion
 type complete >/dev/null 2>&1 && complete -r
 
 # Taste the Unix rainbow
@@ -18,4 +19,9 @@ elif [[ "$(uname -s)" == "Darwin" ]]; then
     source ~/.bashrc.darwin
 elif [[ "$(uname -s)" == "SunOS" ]]; then
     source ~/.bashrc.sunos
+fi
+
+# work settings
+if [[ -f ~/.bashrc.work ]]; then
+    source ~/.bashrc.work
 fi
