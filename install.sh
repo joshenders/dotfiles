@@ -37,7 +37,7 @@ dotfiles=(
 
 # distribution specific dotfiles
 if [[ "$(uname -s)" == "Linux" ]]; then
-    dotfiles=(${dotfiles[@]} .bashrc.linux)
+    dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin)
 elif [[ "$(uname -s)" == "Darwin" ]]; then
     dotfiles=(${dotfiles[@]} .bashrc.darwin)
 elif [[ "$(uname -s)" == "SunOS" ]]; then
