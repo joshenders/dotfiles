@@ -7,6 +7,9 @@ shopt -s histappend
 # enable extended globbing. Think extended regex but for globbing
 shopt -s extglob
 
+# Force of habbit
+set -o emacs
+
 # Remove all bash completion statements. I never use it and it seems to slow
 # down the shell and pollute the environment. Some versions hook
 # .config/bash_completion in profile.d/bash_completion
