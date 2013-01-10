@@ -42,6 +42,8 @@ elif [[ "$(uname -s)" == "Darwin" ]]; then
     dotfiles=(${dotfiles[@]} .bashrc.darwin)
 elif [[ "$(uname -s)" == "SunOS" ]]; then
     dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)
+elif [[ "$(uname -s)" == "FreeBSD" ]]; then
+    dotfiles=(${dotfiles[@]} .bashrc.freebsd)
 fi
 
 echo "Installing..."
