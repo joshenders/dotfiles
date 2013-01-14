@@ -7,9 +7,9 @@ printf "WARNING: This operation will remove existing files in $HOME.\n\n"
 
 while [[ -z "$response" ]]; do
     read -p "Are you ready to install? [y/n] " response
-    
+
     if [[ "$response" =~ ^[yY]$ ]]; then
-	printf "\n"
+    printf "\n"
         break
     elif [[ "$response" =~ ^[nN]$ ]]; then
         exit 1
