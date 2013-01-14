@@ -24,7 +24,7 @@ done
 # Public files
 #
 
-# General configs
+# Common configs
 dotfiles=(
     .bash_profile
     .bashrc
@@ -36,18 +36,15 @@ dotfiles=(
 )
 
 # distribution specific dotfiles
-if [[ "$(uname -s)" == "Linux" ]]; then
-    dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin)
-elif [[ "$(uname -s)" == "Darwin" ]]; then
-    dotfiles=(${dotfiles[@]} .bashrc.darwin)
-elif [[ "$(uname -s)" == "SunOS" ]]; then
-    dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)
-elif [[ "$(uname -s)" == "FreeBSD" ]]; then
-    dotfiles=(${dotfiles[@]} .bashrc.freebsd)
-fi
+case "$(uname -s)" in
+    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin) ;;
+    Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin)           ;;
+    SunOS)   dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)   ;;
+    FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)          ;;
+esac
 
 echo "Installing..."
 for file in ${dotfiles[@]}; do
-    rm -rf "${HOME}/.${file}"
+    rm -rf "${HOME}/${file}"
     ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
 done
