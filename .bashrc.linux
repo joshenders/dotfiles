@@ -63,7 +63,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoreboth
 
 # Commands to not log in history
-export HISTIGNORE=cd*:clear:exit:history:ls*:pwd
+export HISTIGNORE=cd:clear:exit:history:pwd
  
 # Force ls to output ansi escape sequences (colors) even when output is not a
 # terminal, eg. a pipe
