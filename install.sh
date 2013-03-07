@@ -20,7 +20,7 @@ while [[ -z "$response" ]]; do
     fi
 done
 
-# FIXME: This is not elegant but works for now
+# FIXME: This is clumsy but works for now
 
 #
 # Public files
@@ -39,7 +39,7 @@ dotfiles=(
 
 # distribution specific dotfiles
 case "$(uname -s)" in
-    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin) ;;
+    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin .config) ;;
     Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin)           ;;
     SunOS)   dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)   ;;
     FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)          ;;

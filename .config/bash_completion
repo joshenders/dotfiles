@@ -1,0 +1,9 @@
+# The profile.d script provides a configuration file hook that can be
+# used to prevent loading bash_completion on per user basis when it's
+# installed system wide.  To do this, turn off programmable completion
+# with "shopt -u progcomp" in $XDG_CONFIG_HOME/bash_completion
+# (~/.config/bash_completion if $XDG_CONFIG_HOME is not set), and turn
+# it back on for example in ~/.bashrc if you want to use programmable
+# completion for other purposes.
+
+shopt -u progcomp
