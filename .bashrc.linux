@@ -109,8 +109,3 @@ function dstamp() {
         awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< $line
     done
 }
-
-# quick and dirty. Given a movie title, find the year it was released
-function imdb() {
-    curl -A notcurl "https://www.google.com/search?hl=en&q=$(php -r "echo urlencode(\"$1\");")+imdb" | sed -e 's/>/>\n/g' | grep '<b>$' | egrep -o '\([0-9]{4}\)' | head -1
-}
