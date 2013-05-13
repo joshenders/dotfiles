@@ -1,1 +1,5 @@
+# disable terminal bell
 set bell-style none
+
+# enable emacs line editing mode for programs with support
+set editing-mode emacs 
