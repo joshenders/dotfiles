@@ -87,11 +87,7 @@ export LESS=--raw-control-chars
 export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 
 # Colorful prompt
-if [[ "$EUID" -gt '0' ]]; then
-    export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
-else # you are root and you get darkprompt
-    export PS1='\[\e[1;30m\]\h:\W \$ \[\e[0m\]'
-fi
+export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
 
 # Remove annoying command suggestions on typos, provided by command-not-found
 # package in ubuntu
