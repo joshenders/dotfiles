@@ -24,7 +24,7 @@ alias tcpflow='tcpflow -c -e'
 alias ls='ls --color=auto -F'
 
 # Colorized output in grep
-alias grep='grep --color=auto --line-number'
+alias grep='grep --color=auto'
 
 # only display ipv4 addresses in output
 alias ip='ip -4'
