@@ -39,8 +39,8 @@ dotfiles=(
 
 # distribution specific dotfiles
 case "$(uname -s)" in
-    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin .config) ;;
-    Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin)           ;;
+    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .hushlogin .config .inputrc) ;;
+    Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin .inputrc)           ;;
     SunOS)   dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)   ;;
     FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)          ;;
 esac
