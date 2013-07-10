@@ -23,8 +23,8 @@ alias tcpflow='tcpflow -c -e'
 # Colorized output and classification
 alias ls='ls --color=auto --classify'
 
-# Inhibit the conversion of network numbers to host names for network files
-alias lsof='lsof -n'
+# Disable DNS lookups for IPs and /etc/services lookups for ports 
+alias lsof='lsof -nP'
 
 # Colorized output in grep
 alias grep='grep --color=auto'
