@@ -32,9 +32,9 @@ dotfiles=(
     .bashrc
     .gitconfig
     .htoprc
+    .my.cnf
     .screenrc
     .vimrc
-    .my.cnf
 )
 
 # distribution specific dotfiles
