@@ -33,6 +33,7 @@ dotfiles=(
     .gitconfig
     .htoprc
     .my.cnf
+    .tmux.conf
     .screenrc
     .vimrc
 )
