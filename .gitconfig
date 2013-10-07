@@ -10,5 +10,6 @@ branch = auto
 [alias]
 tree = log --graph --pretty=oneline --abbrev-commit --decorate --color
 wdiff = diff --color-words
+
 [push]
-	default = current
+default = current
