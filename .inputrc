@@ -2,4 +2,10 @@
 set bell-style none
 
 # enable emacs line editing mode for programs with support
-set editing-mode emacs 
+set editing-mode emacs
+
+# enable word jumping with alt + arrow
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+# - https://code.google.com/p/iterm2/wiki/Keybindings
+"\e\e[C": forward-word
+"\e\e[D": backward-word
