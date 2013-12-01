@@ -38,6 +38,9 @@ alias bc='bc -q -l'
 # Environment #
 ###############
 
+# If this is set, Python won’t try to write .pyc or .pyo files on the import of source modules.
+export PYTHONDONTWRITEBYTECODE=true
+
 # Set preferred editor
 export VISUAL=vim # This is checked before $EDITOR on some older utils
 export EDITOR=vim
