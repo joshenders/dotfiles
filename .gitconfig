@@ -1,14 +1,15 @@
 [user]
-email = josh.enders@gmail.com
-name = Josh Enders
+    email = josh.enders@gmail.com
+    name = Josh Enders
 
 [color]
-diff = auto
-status = auto
-branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 
 [alias]
-tree = log --graph --pretty=oneline --abbrev-commit --decorate --color
-wdiff = diff --color-words
+    tree = log --graph --pretty=oneline --abbrev-commit --decorate --color
+    wdiff = diff --color-words
+
 [push]
-	default = current
+    default = current

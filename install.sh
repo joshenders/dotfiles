@@ -46,7 +46,7 @@ case "$(uname -s)" in
     FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)                           ;;
 esac
 
-echo "Installing..."
+printf "${bold}Installing...${end}\n"
 for file in ${dotfiles[@]}; do
     rm -rf "${HOME}/${file}"
     printf "  "
