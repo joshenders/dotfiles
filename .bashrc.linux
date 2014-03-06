@@ -114,6 +114,7 @@ function dstamp() {
     while read line; do
         awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< $line
     done
+}
 
 function offline() {
     if [[ "$EUID" -ne '0' ]]; then
