@@ -92,6 +92,7 @@ export LESS=--raw-control-chars
 # Path with ~/bin and sbin family
 export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 
+# TODO: randomize $PS1 coloring at install time
 # Colorful prompt
 if [[ "$EUID" -gt '0' ]]; then
     export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
