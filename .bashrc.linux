@@ -116,6 +116,7 @@ function dstamp() {
     done
 }
 
+
 function offline() {
     if [[ "$EUID" -ne '0' ]]; then
         echo "This function requires root privileges"
@@ -133,4 +134,12 @@ function offline() {
     echo offline > /sys/block/${device}/device/state
     sleep .5
     echo 1 > /sys/block/${device}/device/delete
+}
+
+function diskfreq() {
+    if [[ "$EUID" -ne '0' ]]; then
+        echo "This function requires root privileges"
+        return 1
+    fi
+    zcat -f /var/log/messages* | grep -P -o '\[sd[a-z]+]' | sort | uniq -c | sort -rn
 }
