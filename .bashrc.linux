@@ -130,11 +130,8 @@ function offline() {
     # basename
     local device="${1##/dev/}"
 
-    # sync and sleep mostly for superstitious reasons
-    sync
-    echo offline > /sys/block/${device}/device/state
-    sleep .5
-    echo 1 > /sys/block/${device}/device/delete
+    echo offline > "/sys/block/${device}/device/state"
+    echo 1 > "/sys/block/${device}/device/delete"
 }
 
 function diskfreq() {
