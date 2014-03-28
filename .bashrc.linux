@@ -144,11 +144,14 @@ function diskfreq() {
     zcat --force /var/log/messages* | grep --perl-regexp --only-matching '\[sd[a-z]+]' | sort | uniq --count | sort --reverse --numeric-sort
 }
 
-function diskerrors() {
+function smartchk() {
     if [[ "$EUID" -ne '0' ]]; then
         echo 'This function requires root privileges'
         return 1
     fi
+
+    # extended globbing
+    shopt -s extglob
 
     for disk in /dev/sd+([a-z]); do
         echo "$disk"
