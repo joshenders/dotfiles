@@ -113,17 +113,17 @@ unset command_not_found_handle
 # in /var/log/kern.log.
 function dstamp() {
     while read line; do
-        awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< $line
+        awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< ${line}
     done
 }
 
 
 function offline() {
-    if [[ "$EUID" -ne '0' ]]; then
+    if [[ "${EUID}" -ne '0' ]]; then
         echo "This function requires root privileges"
         return 1
-    elif [[ "$#" -ne '1' ]]; then
-        echo "Usage: $FUNCNAME <device node>"
+    elif [[ "${#}" -ne '1' ]]; then
+        echo "Usage: ${FUNCNAME} <device node>"
         return 1
     fi
 
@@ -135,7 +135,7 @@ function offline() {
 }
 
 function diskfreq() {
-    if [[ "$EUID" -ne '0' ]]; then
+    if [[ "${EUID}" -ne '0' ]]; then
         echo 'This function requires root privileges'
         return 1
     fi
@@ -145,7 +145,7 @@ function diskfreq() {
 }
 
 function smartchk() {
-    if [[ "$EUID" -ne '0' ]]; then
+    if [[ "${EUID}" -ne '0' ]]; then
         echo 'This function requires root privileges'
         return 1
     fi
@@ -154,7 +154,7 @@ function smartchk() {
     shopt -s extglob
 
     for disk in /dev/sd+([a-z]); do
-        echo "$disk"
+        echo "${disk}"
         smartctl --quiet=errorsonly \
                   --log=error "${disk}"
     done
