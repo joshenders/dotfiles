@@ -144,3 +144,16 @@ function diskfreq() {
     fi
     zcat -f /var/log/messages* | grep -P -o '\[sd[a-z]+]' | sort | uniq -c | sort -rn
 }
+
+function diskerrors() {
+    if [[ "$EUID" -ne '0' ]]; then
+        echo 'This function requires root privileges'
+        return 1
+    fi
+
+    for disk in /dev/sd+([a-z]); do
+        echo "$disk"
+        smartctl --quiet=errorsonly \
+                  --log=error "${disk}"
+    done
+}
