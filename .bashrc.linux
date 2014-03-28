@@ -90,7 +90,7 @@ export LESS=--raw-control-chars
 #export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
 
 # Path with ~/bin and sbin family
-export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
 # TODO: randomize $PS1 coloring at install time
 # Colorful prompt
