@@ -153,7 +153,7 @@ function smartchk() {
     # extended globbing
     shopt -s extglob
 
-    for disk in /dev/sd+([a-z]); do
+    for device in /dev/sd+([a-z]); do
         echo "${device}"
         smartctl --quiet=errorsonly \
                   --log=error "${device}"
