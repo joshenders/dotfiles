@@ -139,10 +139,12 @@ function offline() {
 
 function diskfreq() {
     if [[ "$EUID" -ne '0' ]]; then
-        echo "This function requires root privileges"
+        echo 'This function requires root privileges'
         return 1
     fi
-    zcat -f /var/log/messages* | grep -P -o '\[sd[a-z]+]' | sort | uniq -c | sort -rn
+
+    # useful use of cat
+    zcat --force /var/log/messages* | grep --perl-regexp --only-matching '\[sd[a-z]+]' | sort | uniq --count | sort --reverse --numeric-sort
 }
 
 function diskerrors() {
