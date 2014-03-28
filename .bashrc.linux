@@ -154,8 +154,8 @@ function smartchk() {
     shopt -s extglob
 
     for disk in /dev/sd+([a-z]); do
-        echo "${disk}"
+        echo "${device}"
         smartctl --quiet=errorsonly \
-                  --log=error "${disk}"
+                  --log=error "${device}"
     done
 }
