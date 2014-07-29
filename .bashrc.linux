@@ -2,29 +2,25 @@
 # Aliases #
 ###########
 
-# unified diff, for human readability
-alias diff='diff --unified'
+# Don't print banner and import math libs as a simple way to set 'scale'
+# This can also be done with:
+#   `export BC_ENV_ARGS=~/.bc; echo 'scale=20' >> ~/.bc`
+alias bc='bc --quiet --mathlib'
 
 # Convenient audible bell alias for alerting
 alias bell='printf "\a"'
 
-# confirm and verbose
-alias rm='rm --interactive --verbose'
+# be silent
+alias curl='curl --silent'
 
-# Enabled colorized output in tree
-alias tree='tree -C'
+# unified diff, for human readability
+alias diff='diff --unified'
 
-# time stamps and 80 chars wide
-alias strace='strace -T -s80'
+# human readable timestamps
+alias dmesg='dmesg --ctime'
 
-# Console print and colorized streams
-alias tcpflow='tcpflow -c -e'
-
-# Colorized output and classification
-alias ls='ls --color=auto --classify'
-
-# Disable DNS lookups for IPs and /etc/services lookups for ports 
-alias lsof='lsof -nP'
+# switch off DOS-compatible mode
+alias fdisk='fdisk -c=nondos'
 
 # Colorized output in grep
 alias grep='grep --color=auto'
@@ -32,16 +28,23 @@ alias grep='grep --color=auto'
 # only display ipv4 addresses in output
 alias ip='ip -4'
 
-# be silent
-alias curl='curl --silent'
+# Colorized output and classification
+alias ls='ls --color=auto --classify'
 
-# switch off DOS-compatible mode
-alias fdisk='fdisk -c=nondos'
+# Disable DNS lookups for IPs and /etc/services lookups for ports 
+alias lsof='lsof -nP'
 
-# Don't print banner and import math libs as a simple way to set 'scale'
-# This can also be done with:
-#   `export BC_ENV_ARGS=~/.bc; echo 'scale=20' >> ~/.bc`
-alias bc='bc --quiet --mathlib'
+# confirm and verbose
+alias rm='rm --interactive --verbose'
+
+# time stamps and 80 chars wide
+alias strace='strace -T -s80'
+
+# Console print and colorized streams
+alias tcpflow='tcpflow -c -e'
+
+# Enabled colorized output in tree
+alias tree='tree -C'
 
 ###############
 # Environment #
@@ -61,7 +64,7 @@ export HISTSIZE=
 
 # Add timestamps to .bash_history
 # TODO: find someway to store the current working directory for forensics
-export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTTIMEFORMAT="%Y-%m-%d %T "
 
 # The "ignoreboth" setting ignores repeated lines as well as silently discards
 # lines beginning with a space for privacy. Equivalent to 'ignoredups' and
@@ -70,7 +73,7 @@ export HISTCONTROL=ignoreboth
 
 # Commands to not log in history
 export HISTIGNORE=cd:clear:exit:history:pwd
- 
+
 # Force ls to output ansi escape sequences (colors) even when output is not a
 # terminal, eg. a pipe
 export CLICOLOR_FORCE=true
@@ -90,8 +93,9 @@ export LESS=--raw-control-chars
 #export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
 
 # Path with ~/bin and sbin family
-export PATH=~/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
+# TODO: randomize $PS1 coloring at install time
 # Colorful prompt
 if [[ "$EUID" -gt '0' ]]; then
     export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;34m\]\h${SSH_TTY#/dev}: \[\e[37m\]\W \[\e[30m\]\$ \[\e[0m\]'
@@ -110,26 +114,62 @@ unset command_not_found_handle
 # dmesg shows timestamps in seconds since boot, this gnarly awk one liner takes
 # dmesg input and replaces the ticks with a timestamp, similar to what is seen
 # in /var/log/kern.log.
-function dstamp() {
-    while read line; do
-        awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y/%m/%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< $line
-    done
+#function dstamp() {
+#    while read line; do
+#        awk -v uptime=$(grep btime /proc/stat | cut -d ' ' -f 2) '/^[[ 0-9.]*]/ { print strftime("%Y-%m-%d %H:%M:%S", substr($0,2,index($0,".")-2)+uptime) substr($0,index($0,"]")+1) }' <<< ${line}
+#    done
+#}
 
 function offline() {
-    if [[ "$EUID" -ne '0' ]]; then
+    if [[ "${EUID}" -ne '0' ]]; then
         echo "This function requires root privileges"
         return 1
-    elif [[ "$#" -ne '1' ]]; then
-        echo "Usage: $FUNCNAME <device node>"
+    elif [[ "${#}" -ne '1' ]]; then
+        echo "Usage: ${FUNCNAME} <device node>"
         return 1
     fi
 
     # basename
     local device="${1##/dev/}"
 
-    # sync and sleep mostly for superstitious reasons
-    sync
-    echo offline > /sys/block/${device}/device/state
-    sleep .5
-    echo 1 > /sys/block/${device}/device/delete
+    echo offline > "/sys/block/${device}/device/state"
+    echo 1 > "/sys/block/${device}/device/delete"
+}
+
+function diskfreq() {
+    if [[ "${EUID}" -ne '0' ]]; then
+        echo 'This function requires root privileges'
+        return 1
+    fi
+
+    # useful use of cat
+    zcat --force /var/log/messages* | grep --perl-regexp --only-matching '\[sd[a-z]+]' | sort | uniq --count | sort --reverse --numeric-sort
+}
+
+function smartchk() {
+    if [[ "${EUID}" -ne '0' ]]; then
+        echo 'This function requires root privileges'
+        return 1
+    fi
+
+    # extended globbing
+    shopt -s extglob
+
+    for device in /dev/sd+([a-z]); do
+        echo "${device}"
+        smartctl --quiet=errorsonly \
+                  --log=error "${device}"
+    done
+}
+
+function duwtf() {
+    if [[ "${EUID}" -ne '0' ]]; then
+        echo 'This function requires root privileges'
+        return 1
+    elif [[ "$#" -ne '1' ]]; then
+        echo "Usage: ${FUNCNAME} <path>"
+        return 1
+    fi
+
+    find "$1" -xdev -size +100M -exec du --block-size=1M {} \; | sort --numeric-sort --reverse | head --lines=20
 }
