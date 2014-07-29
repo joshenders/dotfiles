@@ -50,6 +50,9 @@ export PYTHONDONTWRITEBYTECODE=true
 export VISUAL=vim # This is checked before $EDITOR on some older utils
 export EDITOR=vim
 
+# colorized grep output
+export GREP_OPTIONS='--color=auto'
+
 # Unset bounds on history file. Disk is cheap, unlimited is fine until it's not
 # and then rotate
 export HISTFILESIZE=
@@ -96,3 +99,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 #############
 # Functions #
 #############
+
+function flushcache() {
+    dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder
+}
