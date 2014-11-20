@@ -29,6 +29,9 @@ alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resource
 # Show wifi info
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I'
 
+# Dig for .local multicast addresses
+alias mdig='dig @224.0.0.251 -p 5353'
+
 # show usb info
 alias lsusb='system_profiler SPUSBDataType'
 
