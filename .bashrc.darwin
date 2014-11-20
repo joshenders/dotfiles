@@ -47,7 +47,8 @@ fi
 export PYTHONDONTWRITEBYTECODE=true
 
 # Set preferred editor
-export VISUAL=vim # This is checked before $EDITOR on some older utils
+# This is checked before $EDITOR on some older utils
+export VISUAL=vim
 export EDITOR=vim
 
 # colorized grep output
