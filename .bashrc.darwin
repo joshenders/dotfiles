@@ -20,6 +20,9 @@ alias tcpflow='tcpflow -c -e'
 # Convenient audible bell alias for alerting
 alias bell='printf "\a"'
 
+# KLUDGE: fix for airserver audio mirroring issue
+alias airplayfix='sudo killall coreaudiod'
+
 # Lock screen
 alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'   
 
