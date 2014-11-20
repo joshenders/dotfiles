@@ -105,3 +105,25 @@ function flushcache() {
     dscacheutil -flushcache
     sudo killall -HUP mDNSResponder
 }
+
+function npr() {
+    # Usage: npr
+    # Creates NPR playlist
+    local day="$(date '+%A')"
+    local date="$(date '+%m-%d-%Y')"
+
+    case ${day} in
+        Sunday)
+          local program='10'
+          ;;
+        Saturday)
+          local program='7'
+          ;;
+        *)
+          local program='3'
+          ;;
+    esac
+
+    local url="http://www.npr.org/player/v2/mediaPlayer.html?action=1&t=3&islist=true&id=${program}&d=${date}"
+    open "${url}"
+}
