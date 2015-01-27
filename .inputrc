@@ -9,3 +9,6 @@ set editing-mode emacs
 # - https://code.google.com/p/iterm2/wiki/Keybindings
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+
+# disable tab-completion for using TAB characters in HERE docs
+#set disable-completion on
