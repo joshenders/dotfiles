@@ -53,3 +53,6 @@ set whichwrap=<,>,h,l,[,]
 
 " set list
 set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
+
+" Enable Syntax highlighting for .vcl
+autocmd BufNewFile,BufRead *.vcl set syntax=C
