@@ -2,6 +2,9 @@
 # Aliases #
 ###########
 
+# No request timer output by default
+alias curl='curl --silent'
+
 # unified diff, for human readability
 alias diff='diff -u'
 
@@ -104,14 +107,13 @@ else
 fi
 
 # Path for MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/jenders/Documents/Code/arcanist/bin:$PATH
 
 #############
 # Functions #
 #############
 
 function flushcache() {
-    dscacheutil -flushcache
     sudo killall -HUP mDNSResponder
 }
 
@@ -135,4 +137,23 @@ function npr() {
 
     local url="http://www.npr.org/player/v2/mediaPlayer.html?action=1&t=3&islist=true&id=${program}&d=${date}"
     open "${url}"
+}
+
+function certchain() {
+    # Usage: certchain
+    # Displays PKI chain for a given domain
+    if [[ "$#" -ne 1 ]]; then
+        echo "Usage: ${FUNCNAME} <ip|domain[:port]>"
+        return 1
+    fi
+
+    local host_port="$1"
+
+    if [[ "$1" != *:* ]]; then
+        local host_port="${1}:443"
+    fi
+
+    openssl \
+        s_client -connect "${host_port}" </dev/null 2>/dev/null \
+        | fgrep -E '\ (s|i):'
 }
