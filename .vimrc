@@ -52,6 +52,7 @@ set backspace=2
 set whichwrap=<,>,h,l,[,]
 
 " set list
+"set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,space:⎵,precedes:«,extends:» sbr=↪
 set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
 
 " Enable Syntax highlighting for .vcl
