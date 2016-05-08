@@ -32,10 +32,10 @@ set ruler
 set hlsearch
 
 " Always display status line
-set statusline=2
+set laststatus=2
 
 " Informative status line
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+"set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
 
 " Turn autobackup off
 set nobackup
