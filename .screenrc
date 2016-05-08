@@ -1,25 +1,30 @@
-# disable the visual bell (that anoying Wuff Wuff message)
+# Disable the visual bell (that anoying Wuff Wuff message)
 vbell off
 
 # Disable the startup copyright message
 startup_message off
 
 # Disables login mode so screen sessions aren't displayed in utmp
-# deflogin off # doesn't work in OSX
+deflogin off # doesn't work in OSX
 
-# scrollback lines
+# Scrollback lines
 defscrollback 8192
 
-# enable UTF-8 support
+# Enable UTF-8 support
 defutf8 on
 
-# enable hardstatus to always display on the last line
+# Enable hardstatus to always display on the last line
 hardstatus alwayslastline
 
-# hardstatus magic
+# This tells screen whether to suppress trailing blank lines when scrolling up
+# text into the history buffer.
+compacthist on
+
+# Hardstatus magic
 hardstatus string '%{= kg} %{c}%H %{g}|%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}|%{W} %D %M %d %c %{g}'
 
 # http://www.delorie.com/gnu/docs/screen/screen_138.html
 # http://jinome.stanford.edu/stat366/unix/.screenrc
 
+# Enable multi-user mode
 multiuser on
