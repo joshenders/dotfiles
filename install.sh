@@ -40,15 +40,16 @@ dotfiles=(
 
 # distribution specific dotfiles
 case "$(uname -s)" in
-    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .colordiffrc .config .hushlogin .inputrc) ;;
-    Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin .colordiffrc .inputrc)                   ;;
-    SunOS)   dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)                    ;;
-    FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)                           ;;
+    Linux)   dotfiles=(${dotfiles[@]} .bashrc.linux .colordiffrc .config .hushlogin .inputrc)  ;;
+    Darwin)  dotfiles=(${dotfiles[@]} .bashrc.darwin .colordiffrc .config .inputrc .mitmproxy) ;;
+    SunOS)   dotfiles=(${dotfiles[@]} .bashrc.sunos .inputrc)                                  ;;
+    FreeBSD) dotfiles=(${dotfiles[@]} .bashrc.freebsd)                                         ;;
 esac
 
 printf "${bold}Installing...${end}\n"
+
 for file in ${dotfiles[@]}; do
-    rm -rf "${HOME}/${file}"
+    rm -rf "${HOME:?}/${file:?}"
     printf "  "
     ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
 done
