@@ -38,7 +38,8 @@ alias lsusb='system_profiler SPUSBDataType'
 alias bc='bc -q -l'
 
 # productivity
-alias code='cd ~/src'
+alias src='cd ~/src'
+
 
 ###############
 # Environment #
@@ -94,7 +95,7 @@ export LESS=-R
 export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
 
 # Path for MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="/opt/local/bin:/opt/local/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # https://support.apple.com/en-us/HT208050
 export BASH_SILENCE_DEPRECATION_WARNING=1
