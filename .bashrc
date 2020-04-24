@@ -24,7 +24,7 @@ elif [[ "$(uname -s)" == "SunOS" ]]; then
     source ~/.bashrc.sunos
 fi
 
-# work settings
-if [[ -f ~/.bashrc.work ]]; then
-    source ~/.bashrc.work
+# private settings
+if [[ -f ~/.bashrc.private ]]; then
+    source ~/.bashrc.private
 fi
