@@ -1,8 +1,12 @@
+# enable for Node development
+#source /opt/local/share/nvm/init-nvm.sh
+
 ###########
 # Aliases #
 ###########
 
 # unified diff, for human readability
+# diff-so-fancy
 alias diff='diff -u'
 
 # disable command printing in dig output
@@ -11,17 +15,20 @@ alias dig='dig +nocmd'
 # confirm and verbose
 alias rm='rm -iv'
 
+# confirm, verbose, noclobber
+alias mv='mv -niv' # does not support kjv
+
 # Enabled colorized output in tree
 alias tree='tree -C'
 
-# Colorized output and classification
-alias ls='ls -FG'
+# Colorized output, classification, and metadata
+alias ls='ls -FGO'
 
 # Convenient audible bell alias for alerting
 alias bell='printf "\a"'
 
 # Lock screen
-alias lock='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'   
+alias lock='/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 
 # Show wifi info
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I'
@@ -37,16 +44,15 @@ alias lsusb='system_profiler SPUSBDataType'
 #   `export BC_ENV_ARGS=~/.bc; echo 'scale=20' >> ~/.bc`
 alias bc='bc -q -l'
 
-# productivity
-alias src='cd ~/src'
-
+# expand aliases after sudo
+alias sudo='sudo ' # trailing whitespace intentional
 
 ###############
 # Environment #
 ###############
 
 # If this is set, Python won’t try to write .pyc or .pyo files on the import of source modules.
-export PYTHONDONTWRITEBYTECODE=true
+#export PYTHONDONTWRITEBYTECODE=true
 
 # Set preferred editor
 # This is checked before $EDITOR on some older utils
@@ -94,15 +100,30 @@ export LESS=-R
 # Happy/Sad Prompt
 export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
 
-# Path for MacPorts
-export PATH="/opt/local/bin:/opt/local/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
 # https://support.apple.com/en-us/HT208050
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# https://github.com/devkitPro
+export DEVKITPRO=/opt/devkitpro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+export DEVKITPPC=${DEVKITPRO}/devkitPPC
+
+export PATH="/opt/local/libexec/llvm-10/bin/:${DEVKITPRO}/tools/bin:/opt/local/bin:/opt/local/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/jenders/Library/Python/3.9/bin:${PATH}"
+
+export DISPLAY=:0
 
 #############
 # Functions #
 #############
+
+function typora() {
+    nohup /Applications/Typora.app/Contents/MacOS/typora "$@" >/dev/null 2>&1 &
+}
+
+function vax() {
+    xattr -vrd com.apple.quarantine "$1"
+}
+
 
 function flushcache() {
     sudo \dscacheutil -flushcache
@@ -131,3 +152,22 @@ function certchain() {
             --extended-regexp '\ (s|i):'
 }
 
+
+urlencode() {
+    # urlencode <string>
+    local LC_COLLATE=C
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:$i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+}
+
+urldecode() {
+    # urldecode <string>
+    local url_encoded="${1//+/ }"
+    printf '%b' "${url_encoded//%/\\x}"
+}
