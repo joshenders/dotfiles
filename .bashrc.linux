@@ -163,13 +163,10 @@ function smartchk() {
 }
 
 function duwtf() {
-    if [[ "${EUID}" -ne '0' ]]; then
-        echo 'This function requires root privileges'
-        return 1
-    elif [[ "$#" -ne '1' ]]; then
+    if [[ "$#" -ne '1' ]]; then
         echo "Usage: ${FUNCNAME} <path>"
         return 1
     fi
 
-    find "$1" -xdev -size +100M -exec du --block-size=1M {} \; | sort --numeric-sort --reverse | head --lines=20
+    \sudo \find "$1" -xdev -size +100M -exec du --block-size=1M {} \; | \sort --numeric-sort --reverse | \head --lines=20
 }
