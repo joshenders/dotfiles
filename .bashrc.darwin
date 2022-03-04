@@ -51,7 +51,8 @@ alias sudo='sudo ' # trailing whitespace intentional
 # Environment #
 ###############
 
-# If this is set, Python won’t try to write .pyc or .pyo files on the import of source modules.
+# If this is set, Python won’t try to write .pyc or .pyo files on the import
+# of source modules.
 #export PYTHONDONTWRITEBYTECODE=true
 
 # Set preferred editor
@@ -67,7 +68,8 @@ export HISTFILESIZE=
 export HISTSIZE=
 
 # Add timestamps to .bash_history
-# TODO: ideally finding someway to store the current working directory for those times when you want to know where you ran that career ending command
+# TODO: ideally finding someway to store the current working directory for
+# those times when you want to know where you ran that career ending command
 export HISTTIMEFORMAT="%Y-%m-%d %T "
 
 # The "ignoreboth" setting ignores repeated lines as well as silently discards
