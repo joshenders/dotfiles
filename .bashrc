@@ -15,11 +15,13 @@ set -o emacs
 # .config/bash_completion in profile.d/bash_completion
 type complete >/dev/null 2>&1 && complete -r
 
-# Taste the Unix rainbow
+# Taste the rainbow
 if [[ "$(uname -s)" == "Linux" ]]; then
     source ~/.bashrc.linux
 elif [[ "$(uname -s)" == "Darwin" ]]; then
     source ~/.bashrc.darwin
+elif [[ "$(uname -s)" == "FreeBSD" ]]; then
+    source ~/.bashrc.freebsd
 elif [[ "$(uname -s)" == "SunOS" ]]; then
     source ~/.bashrc.sunos
 fi

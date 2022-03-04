@@ -1,0 +1,57 @@
+###########
+# Aliases #
+###########
+
+# unified diff, for human readability
+alias diff='diff -u'
+
+# disable command printing in dig output
+alias dig='dig +nocmd'
+
+# confirm and verbose
+alias rm='rm -iv'
+
+# confirm, verbose, noclobber
+alias mv='mv -niv'
+
+# Classification, Colorized output
+alias ls='ls -FG'
+
+# Convenient audible bell alias for alerting
+alias bell='printf "\a"'
+
+# expand aliases after sudo
+alias sudo='sudo ' # trailing whitespace intentional
+
+###############
+# Environment #
+###############
+
+# Set preferred editor
+# This is checked before $EDITOR on some older utils
+export VISUAL=vim
+export EDITOR=vim
+
+# Unset bounds on history file.
+export HISTFILESIZE=
+export HISTSIZE=
+
+# Add timestamps to .bash_history
+# TODO: ideally finding someway to store the current working directory for
+# those times when you want to know where you ran that career ending command
+export HISTTIMEFORMAT="%Y-%m-%d %T "
+
+# The "ignoreboth" setting ignores repeated lines as well as silently discards
+# lines beginning with a space for privacy. Equivalent to 'ignoredups' and
+# 'ignorespace'
+export HISTCONTROL=ignoreboth
+
+# Commands to not log in history
+export HISTIGNORE=ls:cd
+
+# Happy/Sad Prompt
+export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?))&&echo 1m\]:\(||echo 2m\]:\)) \[\e[30m\]\$ \[\e[0m\]'
+
+#############
+# Functions #
+#############
