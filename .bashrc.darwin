@@ -16,7 +16,7 @@ alias dig='dig +nocmd'
 alias rm='rm -iv'
 
 # confirm, verbose, noclobber
-alias mv='mv -niv' # does not support kjv
+alias mv='mv -iv' # does not support kjv
 
 # Enabled colorized output in tree
 alias tree='tree -C'
@@ -81,13 +81,18 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE=ls:cd
 
 # Lua package path
-export LUA_PATH='/opt/local/share/luarocks/share/lua/5.3/?.lua;;'
- 
+export LUA_PATH='/Users/jenders/.luarocks/share/lua/5.3/?.lua;/Users/jenders/.luarocks/share/lua/5.3/?/init.lua;;'
+
+# Lua so path
+export LUA_CPATH='/Users/jenders/.luarocks/lib/lua/5.3/?.so;;'
+
 # Force ls to output ansi escape sequences (colors) even when output is not a terminal, eg. a pipe
 export CLICOLOR_FORCE=true
 #
 # causes raw control characters to be printed and therefore interpreted by your terminal
 export LESS=-R
+
+export MANPATH="/opt/local/share/man:${MANPATH}"
 
 # Less colors for man pages
 # - http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
@@ -110,9 +115,9 @@ export DEVKITPRO=/opt/devkitpro
 export DEVKITARM=${DEVKITPRO}/devkitARM
 export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
-export PATH="/opt/local/libexec/llvm-10/bin/:${DEVKITPRO}/tools/bin:/opt/local/bin:/opt/local/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/jenders/Library/Python/3.9/bin:${PATH}"
+export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
 
-export DISPLAY=:0
+export DISPLAY=':0.0'
 
 #############
 # Functions #

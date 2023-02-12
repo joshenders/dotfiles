@@ -35,7 +35,7 @@ alias lsof='lsof -nP'
 alias rm='rm --interactive --verbose'
 
 # confirm, no overwrite, and verbose
-alias mv='mv --interactive --no-clobber --verbose'
+alias mv='mv --interactive --verbose'
 
 # time stamps and 80 chars wide
 alias strace='strace -T -s80'

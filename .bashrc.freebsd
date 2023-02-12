@@ -12,7 +12,7 @@ alias dig='dig +nocmd'
 alias rm='rm -iv'
 
 # confirm, verbose, noclobber
-alias mv='mv -niv'
+alias mv='mv -iv'
 
 # Classification, Colorized output
 alias ls='ls -FG'
