@@ -51,6 +51,9 @@ set backspace=2
 " Allows moving to previous line after reaching first/last character in a line with cursor keys
 set whichwrap=<,>,h,l,[,]
 
+" Create vertical column at 80 chars
+set colorcolumn=80
+
 " set list
 "set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,space:⎵,precedes:«,extends:» sbr=↪
 set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
