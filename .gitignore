@@ -3,3 +3,4 @@
 .mitmproxy/mitmproxy-ca-cert.pem
 .mitmproxy/mitmproxy-ca.pem
 .mitmproxy/mitmproxy-dhparam.pem
+.config/htop/htoprc
