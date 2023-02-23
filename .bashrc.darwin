@@ -111,11 +111,12 @@ export PS1='\[\e[1;34m\]\u\[\e[1;30m\]@\[\e[1;36m\]\h \[\e[34m\]\W \[\e[3$((($?)
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # https://github.com/devkitPro
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=${DEVKITPRO}/devkitARM
-export DEVKITPPC=${DEVKITPRO}/devkitPPC
+#export DEVKITPRO=/opt/devkitpro
+#export DEVKITARM=${DEVKITPRO}/devkitARM
+#export DEVKITPPC=${DEVKITPRO}/devkitPPC
 
-export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+#export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+export PATH="/opt/local/bin:/opt/local/sbin:/Users/jenders/Library/Python/3.10/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
 
 export DISPLAY=':0.0'
 
