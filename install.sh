@@ -36,6 +36,7 @@ dotfiles=(
     .tmux.conf
     .screenrc
     .vimrc
+    .parallel
 )
 
 # distribution specific dotfiles

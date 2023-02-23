@@ -4,3 +4,5 @@
 .mitmproxy/mitmproxy-ca.pem
 .mitmproxy/mitmproxy-dhparam.pem
 .config/htop/htoprc
+.parallel/runs-without-willing-to-cite
+.parallel/tmp
