@@ -179,3 +179,7 @@ urldecode() {
     local url_encoded="${1//+/ }"
     printf '%b' "${url_encoded//%/\\x}"
 }
+
+sudofix() {
+    echo 'sudo bash -c '\''echo "auth       sufficient     pam_tid.so" >> /etc/pam.d/sudo'\'''
+}
