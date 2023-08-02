@@ -9,3 +9,8 @@ fi
 if [[ -f ~/.bashrc ]]; then
     source ~/.bashrc
 fi
+
+# Notify user of login shell a reboot is required due to package update
+if [[ -f /var/run/reboot-required ]]; then
+    cat /var/run/reboot-required
+fi
