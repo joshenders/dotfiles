@@ -31,7 +31,6 @@ dotfiles=(
     .bash_profile
     .bashrc
     .gitconfig
-    .htoprc
     .my.cnf
     .tmux.conf
     .screenrc
