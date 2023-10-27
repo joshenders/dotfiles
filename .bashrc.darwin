@@ -51,6 +51,9 @@ alias sudo='sudo ' # trailing whitespace intentional
 # Environment #
 ###############
 
+#export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+export PATH="~/.local/bin:/opt/local/bin:/opt/local/sbin:~/Library/Python/3.12/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+
 # If this is set, Python won’t try to write .pyc or .pyo files on the import
 # of source modules.
 #export PYTHONDONTWRITEBYTECODE=true
@@ -114,9 +117,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 #export DEVKITPRO=/opt/devkitpro
 #export DEVKITARM=${DEVKITPRO}/devkitARM
 #export DEVKITPPC=${DEVKITPRO}/devkitPPC
-
-#export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
-export PATH="/opt/local/bin:/opt/local/sbin:/Users/jenders/Library/Python/3.10/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
 
 export DISPLAY=':0.0'
 
