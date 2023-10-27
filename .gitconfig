@@ -29,5 +29,5 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-;[diff-so-fancy]
-;	first-run = false
+[diff-so-fancy]
+	first-run = false
