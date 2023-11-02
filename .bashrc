@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # This file is sourced by non-login shells (and .bash_profile)
 
 # If set, the history list is appended to the file named by the value of the

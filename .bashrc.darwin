@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # enable for Node development
 #source /opt/local/share/nvm/init-nvm.sh
 
@@ -52,7 +54,7 @@ alias sudo='sudo ' # trailing whitespace intentional
 ###############
 
 #export PATH="/opt/local/bin:/opt/local/sbin:${DEVKITPRO}/tools/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
-export PATH="~/.local/bin:/opt/local/bin:/opt/local/sbin:~/Library/Python/3.12/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+export PATH="${HOME}/.local/bin:/opt/local/bin:/opt/local/sbin:~/Library/Python/3.12/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
 
 # If this is set, Python won’t try to write .pyc or .pyo files on the import
 # of source modules.
@@ -125,17 +127,17 @@ export DISPLAY=':0.0'
 #############
 
 function typora() {
-    nohup /Applications/Typora.app/Contents/MacOS/typora "$@" >/dev/null 2>&1 &
+    \nohup /Applications/Typora.app/Contents/MacOS/typora "$@" >/dev/null 2>&1 &
 }
 
 function vax() {
-    xattr -vrd com.apple.quarantine "$1"
+    \xattr -vrd com.apple.quarantine "$1"
 }
 
 
 function flushcache() {
-    sudo \dscacheutil -flushcache
-    sudo \killall -HUP mDNSResponder
+    \sudo dscacheutil -flushcache
+    \sudo killall -HUP mDNSResponder
 }
 
 
@@ -155,7 +157,8 @@ function certchain() {
 
     \openssl \
         s_client -connect "${host_port}" </dev/null 2>/dev/null \
-        | \fgrep \
+        | \grep \
+            --fixed-strings \
             --color=never \
             --extended-regexp '\ (s|i):'
 }

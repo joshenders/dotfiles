@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # This file is sourced by login shells
 
 # Some login shells are not interactive and cannot tolerate output. (e.g scp)
