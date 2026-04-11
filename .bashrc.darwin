@@ -62,7 +62,7 @@ export DEVKITARM="${DEVKITPRO}/devkitARM"
 export DEVKITPPC="${DEVKITPRO}/devkitPPC"
 
 # XXX: MacPorts /opt/local/libexec/gnubin/
-export PATH="${DEVKITPRO}/tools/bin:${HOME}/.local/bin:/opt/local/bin:/opt/local/sbin:~/Library/Python/3.12/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.12/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+export PATH="${DEVKITPRO}/tools/bin:${HOME}/.local/bin:/opt/local/bin:/opt/local/sbin:~/Library/Python/3.12/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.12/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/.opencode/bin:${PATH}"
 
 # If this is set, Python won’t try to write .pyc or .pyo files on the import
 # of source modules.
