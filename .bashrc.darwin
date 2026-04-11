@@ -20,6 +20,9 @@ alias rm='rm -iv'
 # confirm, verbose, noclobber
 alias mv='mv -iv' # does not support kjv
 
+# don't copy extended attributes as ._ files
+alias tar='tar --disable-copyfile'
+
 # Enabled colorized output in tree
 alias tree='tree -C'
 
