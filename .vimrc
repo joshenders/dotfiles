@@ -60,3 +60,7 @@ set listchars=tab:»-,trail:•,eol:¶,nbsp:⎵,precedes:«,extends:» sbr=↪
 
 " Enable Syntax highlighting for .vcl
 autocmd BufNewFile,BufRead *.vcl set syntax=C
+
+" disable mouse handling
+set mouse=
+set ttymouse=
