@@ -5,7 +5,7 @@ vbell off
 startup_message off
 
 # Disables login mode so screen sessions aren't displayed in utmp
-deflogin off # doesn't work in OSX
+#deflogin off # doesn't work in OSX
 
 # Scrollback lines
 defscrollback 8192
