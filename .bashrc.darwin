@@ -141,6 +141,21 @@ export DISPLAY=':0.0'
 # Functions #
 #############
 
+function splitnsp() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "Usage: ${FUNCNAME} <infile.nsp>"
+        return 1
+    fi
+
+    local file="$1"
+    \mkdir "${file%%.nsp}.split.nsp" \
+    && \gsplit \
+        -b 4294901760 \
+        --numeric-suffixes=00 \
+            "${file}" \
+            "${file%%.nsp}.split.nsp"/""
+}
+
 function typora() {
     \nohup /Applications/Typora.app/Contents/MacOS/typora "$@" >/dev/null 2>&1 &
 }
