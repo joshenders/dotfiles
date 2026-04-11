@@ -1,8 +1,8 @@
+.DS_Store
 .mitmproxy/mitmproxy-ca-cert.cer
 .mitmproxy/mitmproxy-ca-cert.p12
 .mitmproxy/mitmproxy-ca-cert.pem
 .mitmproxy/mitmproxy-ca.pem
 .mitmproxy/mitmproxy-dhparam.pem
-.config/htop/htoprc
 .parallel/runs-without-willing-to-cite
 .parallel/tmp
