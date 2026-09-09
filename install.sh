@@ -23,9 +23,9 @@ function prompt() {
 
 function main() {
     # This script creates symlinks in $HOME for certain files in this directory
-    local red='\e[0;31m'
-    local bold='\e[1m'
-    local end='\e[m'
+    local red=$'\e[0;31m'
+    local bold=$'\e[1m'
+    local end=$'\e[m'
 
     echo -e "${red}WARNING:${end} This operation will remove existing files in ${bold}${HOME}${end}.\n\n"
 
