@@ -27,11 +27,9 @@ function main() {
     local bold=$'\e[1m'
     local end=$'\e[m'
 
-    echo -e "${red}WARNING:${end} This operation will remove existing files in ${bold}${HOME}${end}.\n\n"
+    echo -e "${red}WARNING:${end} This operation will remove existing files in ${bold}${HOME}${end}.\n"
 
 	prompt "Are you ready to install?"
-
-	# FIXME: This is clumsy but works for now
 
 	#
 	# Public files
@@ -67,9 +65,6 @@ function main() {
 		printf "  "
 		ln -sfv "${PWD}/${file}" "${HOME}/${file}" # create symlinks for each file pointing here
 	done
-
-	prompt "${bold}Would you like to source your new .bashrc now${end}\n"
-
 }
 
 main "$@"
