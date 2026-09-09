@@ -6,13 +6,13 @@ function prompt() {
     local message="$1"
     local response
 
-    while [[ -z "$response" ]]; do
-        read -r -p "$message [y/n] " response
+    while [[ -z "${response}" ]]; do
+        read -pr "${message} [y/n] " response
 
-        if [[ "$response" =~ ^[yY]$ ]]; then
+        if [[ "${response}" =~ ^[yY]$ ]]; then
             printf "\n"
             return 0
-        elif [[ "$response" =~ ^[nN]$ ]]; then
+        elif [[ "${response}" =~ ^[nN]$ ]]; then
             return 1
         else
             unset response
@@ -54,10 +54,10 @@ function main() {
 
 	# distribution specific dotfiles
 	case "${distro}" in
-		Linux)   for cfg in .bashrc.linux .colordiffrc .config .hushlogin .inputrc; do mapfile -t dotfiles <<< "${cfg}"; done ;;
-		Darwin)  for cfg in .bashrc.darwin .colordiffrc .config .inputrc .mitmproxy; do mapfile -t dotfiles <<< "${cfg}"; done ;;
-		SunOS)   for cfg in .bashrc.sunos .inputrc; do mapfile -t dotfiles <<< "${cfg}"; done ;;
-		FreeBSD) mapfile -t dotfiles <<< ".bashrc.freebsd" ;;
+		Linux)   dotfiles+=(.bashrc.linux .colordiffrc .config .hushlogin .inputrc) ;;
+		Darwin)  dotfiles+=(.bashrc.darwin .colordiffrc .config .inputrc .mitmproxy) ;;
+		SunOS)   dotfiles+=(.bashrc.sunos .inputrc) ;;
+		FreeBSD) dotfiles+=(.bashrc.freebsd) ;;
 	esac
 
 	echo -e "${bold}Installing...${end}\n"
