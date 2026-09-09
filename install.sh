@@ -7,7 +7,7 @@ function prompt() {
     local response
 
     while [[ -z "${response}" ]]; do
-        read -pr "${message} [y/n] " response
+        read -r -p "${message} [y/n] " response
 
         if [[ "${response}" =~ ^[yY]$ ]]; then
             printf "\n"
