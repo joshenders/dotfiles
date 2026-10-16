@@ -1,0 +1,7 @@
+-f bv*+ba/b
+-S res,fps,hdr:12,vcodec,acodec
+--merge-output-format mkv
+--remux-video mkv
+--embed-metadata
+--embed-chapters
+--embed-thumbnail
